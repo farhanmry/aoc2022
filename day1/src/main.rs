@@ -8,10 +8,9 @@ fn main() {
 
     if let Ok(lines) = read_lines("input.txt") {
         for line in lines {
-            if let Ok(content) = line {
-                let current_value = content.parse::<u32>();
-                if current_value.is_ok() {
-                    current_elf_belly = current_elf_belly + current_value.unwrap()
+            if let Ok(line_value) = line {
+                if let Ok(line_value) = line_value.parse::<u32>() {
+                    current_elf_belly = current_elf_belly + line_value;
                 } else {
                     if fattest_elf < current_elf_belly {
                         fattest_elf = current_elf_belly;
